@@ -10,13 +10,13 @@ export const App = () => {
     isLoading,
   } = useQuery({
     queryKey: ['books'],
-    queryFn: () => getBooks(),
+    queryFn: getBooks,
   });
 
   return (
     <>
       <PageTitle>Список книг</PageTitle>
-      {books && books.length > 0 && <BooksList books={books || []}></BooksList>}
+      {books && books.length > 0 && <BooksList books={books || []} />}
       {isLoading && <Loading>Завантаження</Loading>}
       {isError && <Error>Ой! Сталася помилка</Error>}
     </>
